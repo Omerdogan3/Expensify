@@ -1,4 +1,4 @@
-# Indesicion
+# Expensify
 
 ## Commands
     yarn run dev-server
