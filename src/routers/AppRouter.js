@@ -11,10 +11,6 @@ import Header from '../components/Header';
 //setup imports.
 //import into appRouter.
 
-
-
-
-
 const AppRouter = () =>(
     <BrowserRouter>
         <div>
@@ -22,7 +18,7 @@ const AppRouter = () =>(
             <Switch>
                 <Route path="/" component={ExpenseDashboardPage} exact={true}/>
                 <Route path="/create" component={AdExpensePage}/>
-                <Route path="/expense/:id" component={EditExpensePage}/>
+                <Route path="/edit/:id" component={EditExpensePage}/>
                 <Route path="/help" component={HelpPage}/>
                 <Route component={NotFoundPage}/>
             </Switch>
