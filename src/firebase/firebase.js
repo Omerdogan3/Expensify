@@ -10,6 +10,94 @@ const config = {
   };
 
 firebase.initializeApp(config);
-firebase.database().ref().set({
-    name: 'Omer Dogan'
+
+const database = firebase.database();
+
+database.ref('notes').push({
+    title: 'To Do',
+    body: 'Do for a run'
 });
+
+// const firebaseNotes = {
+//     notes: {
+//         asd:{
+//             title:'test1',
+//             body: 'this is my first note'
+//         },
+//         asdasd:{
+//             title:'test2',
+//             body: 'this is my second note'
+//         }
+//     },
+// };
+
+// const notes = [{
+//     id: 20,
+//     body: 'this is my first note'
+// },{
+//     id: 21,
+//     body: 'this is my second note'
+// }];
+
+// database.ref('notes').set(notes);
+
+// database.ref().on('value',(snapshot)=>{
+//     console.log(snapshot.val());
+// });
+
+
+// database.ref('location/city').once('value').then((snapshot)=>{
+//     const val = snapshot.val();
+//     console.log(val);
+// }).catch((e)=>{
+//     console.log('Error fetching data',e);
+// });
+
+
+// database.ref().set({
+//     name: 'Omer Dogan',
+//     age: 26,
+//     isSingle:false,
+//     stressLevel:3,
+//     job: {
+//         title: 'Software Developer',
+//         company: 'Google'
+//     },
+//     location:{
+//         city:'Philadelphia',
+//         country:'US'
+//     }
+// }).then(()=>{
+//     console.log('data is saved!');
+// }).catch((e)=>{
+//     console.log('This failed', e);
+// });
+
+// database.ref().set('This is my data');
+
+// database.ref('attributes').set({
+//     height: 1.95,
+//     weight:80
+// }).then(()=>{
+//     console.log('Second set call worked!');
+// }).catch((e)=>{
+//     console.log('Things did not work!',e);
+// });
+
+// database.ref('isSingle').remove().then(()=>{
+//     console.log('data was removed');
+// }).catch((e)=>{
+//     console.log('data could not removed!');
+// })
+
+// database.ref().update({
+//     stressLevel: 12,
+//     'location/city': 'Seatle',
+//     'job/title': 'Manager'
+// });
+
+
+
+
+
+
