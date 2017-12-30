@@ -1,4 +1,14 @@
-import {addExpense, editExpense, removeExpense} from '../../actions/expenses';
+import {addExpense, editExpense, removeExpense, setExpenses} from '../../actions/expenses';
+import { database } from 'firebase';
+
+beforeEach((done)=>{
+    const expensesData = {};
+    expenses.forEach((id, description, note, amount, createdAt) => {
+        expensesData[id] = {description, note, amount, createdAt};
+    });
+    database.ref('expenses').set(expensesData).then(()=> done());
+});
+
 
 test('should set up remove expense action object',()=>{
     const action = removeExpense({id:'123abc'});
@@ -50,5 +60,13 @@ test('should setup add expesne action object with default values',()=>{
             amount:0,
             createdAt:0
         }
+    });
+});
+
+test('Test should setup set expense action object with data', ()=>{
+    const action = setExpenses(expenses);
+    expect(action).toEqual({
+        type: 'SET_EXPENSES',
+        expenses
     });
 });
